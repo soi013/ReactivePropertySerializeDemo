@@ -1,0 +1,4 @@
+# ReactivePropertySerializeDemo
+
+ReactivePropertyをMessagePackとJSONにシリアライズ/デシリアライズするデモアプリ
+

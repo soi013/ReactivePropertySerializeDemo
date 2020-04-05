@@ -22,7 +22,7 @@ namespace ReactivePropertySerializeDemo
         public ReactiveProperty<string> JsonSerializedNames { get; } = new ReactiveProperty<string>();
 
         public ReactiveCommand SerializeCommand { get; }
-        public ReactiveCommand DesirializeCommand { get; }
+        public ReactiveCommand DeserializeCommand { get; }
 
         public MainWindowViewModel()
         {
@@ -31,10 +31,10 @@ namespace ReactivePropertySerializeDemo
                 .ToReactiveCommand()
                 .WithSubscribe(() => Serialize());
 
-            DesirializeCommand = JsonSerializedNames
+            DeserializeCommand = JsonSerializedNames
                 .Select(x => x?.Length > 5)
                 .ToReactiveCommand()
-                .WithSubscribe(() => Desirialize());
+                .WithSubscribe(() => Deserialize());
 
             //ReactiveProperty用を含んだResolverのセットをデフォルトに設定しておく
             var resolver = MessagePack.Resolvers.CompositeResolver.Create(
@@ -54,7 +54,7 @@ namespace ReactivePropertySerializeDemo
             this.JsonSerializedNames.Value = MessagePackSerializer.SerializeToJson(Names);
         }
 
-        private void Desirialize()
+        private void Deserialize()
         {
             //JSON側からデシリアライズ
             var mPack = MessagePack.MessagePackSerializer.ConvertFromJson(JsonSerializedNames.Value);

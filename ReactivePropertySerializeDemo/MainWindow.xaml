@@ -20,8 +20,8 @@
             Content="Serialize" />
          <Button
             Margin="10"
-            Command="{Binding DesirializeCommand}"
-            Content="Desirialize" />
+            Command="{Binding DeserializeCommand}"
+            Content="Deserialize" />
       </StackPanel>
       <TextBlock Text="MessagePack Serialized" />
       <TextBox

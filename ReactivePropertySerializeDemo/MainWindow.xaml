@@ -1,0 +1,38 @@
+﻿<Window
+   x:Class="ReactivePropertySerializeDemo.MainWindow"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:local="clr-namespace:ReactivePropertySerializeDemo"
+   Title="MainWindow"
+   Width="800" Height="450"
+   TextElement.FontSize="24">
+   <Window.DataContext>
+      <local:MainWindowViewModel />
+   </Window.DataContext>
+   <StackPanel>
+      <TextBox Margin="5" Text="{Binding Names.NameRp.Value}" />
+      <TextBox Margin="5" Text="{Binding Names.NameRps.Value}" />
+      <TextBlock Margin="5" Text="{Binding Names.NameRorps.Value}" />
+      <StackPanel Orientation="Horizontal">
+         <Button
+            Margin="10"
+            Command="{Binding SerializeCommand}"
+            Content="Serialize" />
+         <Button
+            Margin="10"
+            Command="{Binding DesirializeCommand}"
+            Content="Desirialize" />
+      </StackPanel>
+      <TextBlock Text="MessagePack Serialized" />
+      <TextBox
+         Margin="5,0,5,10"
+         IsReadOnly="True"
+         Text="{Binding MessagePackSerializedNames.Value}"
+         TextWrapping="Wrap" />
+      <TextBlock Text="Json Serialized" />
+      <TextBox
+         Margin="5,0,5,10"
+         Text="{Binding JsonSerializedNames.Value}"
+         TextWrapping="Wrap" />
+   </StackPanel>
+</Window>

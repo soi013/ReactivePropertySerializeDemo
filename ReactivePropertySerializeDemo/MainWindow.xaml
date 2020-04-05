@@ -3,7 +3,7 @@
    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
    xmlns:local="clr-namespace:ReactivePropertySerializeDemo"
-   Title="MainWindow"
+   Title="ReactiveProperty Serialize Demo"
    Width="800" Height="450"
    TextElement.FontSize="24">
    <Window.DataContext>
